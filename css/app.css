@@ -1,0 +1,51 @@
+body {
+
+    background: #eee;
+}
+.container {
+
+    margin-top: 20px;
+    background: #fff;
+    box-shadow: 1px 1px 1px #ccc;
+}
+
+.row {
+
+    padding: 20px;
+}
+
+.add {
+    
+}
+
+.todo .header {
+
+    border-top: 4px solid #eee;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;    
+}
+
+.todo .header i {
+    
+    color: #ccc;
+}
+
+.todo .header .tools {
+    
+    float: right;
+    display: inline-block;
+    
+}
+
+.todo .tool {
+    
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.todo ul {
+
+    list-style-type: none;
+
+}

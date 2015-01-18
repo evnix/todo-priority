@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Codoforum features</title>
+
+        <!-- Bootstrap -->
+        <link href="../ext/bs/css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/app.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="alert alert-info">A feature at the top is not always guranteed to be implemented first but will always get highest priority when new features are added</div>
+                <section class="todo col-md-8">
+
+                    <div class="header">
+                        <b>todo list
+                        </b>                        
+                        <div class="tools">
+                            <div class="tool"><i class="glyphicon glyphicon-plus tip" title="add new"></i></div>
+                        </div>
+                    </div>
+
+                    <table class="table" id="features-table">
+                        <tr>
+                            <th>Feature</th>
+                            <th>No. of votes</th>
+                            <th>Actions</th>
+                        </tr>
+                        {% for feature in features %}
+
+                        <tr>
+                            <td>{{feature.name}}</td>
+                            <td>{{feature.votes}}</td>
+                            <td>
+                                <div class="tool tip upvote" title="upvote" data-id="{{feature.id}}">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                </div>
+                                <div class="tool tip downvote" title="downvote" data-id="{{feature.id}}">
+                                    <i class="glyphicon glyphicon-thumbs-down"></i>
+                                </div>
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                </section>
+                <div class="col-md-4">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Add new feature </div>
+                        <form class="add panel-body" action="add.php" method="POST">
+                            <div class="form-group">
+                                <label for="feature">feature</label>
+                                <input type="text" class="form-control" name="feature" id="feature" placeholder="Enter feature name" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>    
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="../ext/bs/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+
+jQuery(document).ready(function ($) {
+
+    $('.tip').tooltip();
+
+    $('#features-table').on('click', ".upvote", function () {
+
+        window.location = "../php/vote.php?action=up&id=" + $(this).data('id');
+    });
+
+    $('#features-table').on('click', ".downvote", function () {
+
+        window.location = "../php/vote.php?action=down&id=" + $(this).data('id');
+    });
+
+});
+        </script>
+    </body>
+</html>
