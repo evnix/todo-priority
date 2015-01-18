@@ -41,7 +41,7 @@
                         </tr>
                         {% for feature in features %}
 
-                        <tr>
+                        <tr class="tip" title="{{feature.desc}}">
                             <td>{{feature.name}}</td>
                             <td>{{feature.votes}}</td>
                             <td>
@@ -66,6 +66,11 @@
                                 <label for="feature">feature</label>
                                 <input type="text" class="form-control" name="feature" id="feature" placeholder="Enter feature name" required>
                             </div>
+                            <div class="form-group">
+                                <label for="desc">description</label>
+                                <textarea  class="form-control" name="desc" placeholder="optional. leave blank if not required"></textarea>
+                            </div>
+                            
                             <button type="submit" class="btn btn-primary">add</button>
                         </form>
                     </div>

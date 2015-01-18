@@ -64,7 +64,10 @@ class __TwigTemplate_982094671c86a8bb5ce60ab4583797b9f0d75765b2981392329a40fceb9
         foreach ($context['_seq'] as $context["_key"] => $context["feature"]) {
             // line 43
             echo "
-                        <tr>
+                        <tr class=\"tip\" title=\"";
+            // line 44
+            echo twig_escape_filter($this->env, $this->getAttribute($context["feature"], "desc", array()), "html", null, true);
+            echo "\">
                             <td>";
             // line 45
             echo twig_escape_filter($this->env, $this->getAttribute($context["feature"], "name", array()), "html", null, true);
@@ -106,6 +109,11 @@ class __TwigTemplate_982094671c86a8bb5ce60ab4583797b9f0d75765b2981392329a40fceb9
                                 <label for=\"feature\">feature</label>
                                 <input type=\"text\" class=\"form-control\" name=\"feature\" id=\"feature\" placeholder=\"Enter feature name\" required>
                             </div>
+                            <div class=\"form-group\">
+                                <label for=\"desc\">description</label>
+                                <textarea  class=\"form-control\" name=\"desc\" placeholder=\"optional. leave blank if not required\"></textarea>
+                            </div>
+                            
                             <button type=\"submit\" class=\"btn btn-primary\">add</button>
                         </form>
                     </div>
@@ -150,6 +158,6 @@ jQuery(document).ready(function (\$) {
 
     public function getDebugInfo()
     {
-        return array (  98 => 58,  85 => 51,  79 => 48,  74 => 46,  70 => 45,  66 => 43,  62 => 42,  19 => 1,);
+        return array (  101 => 58,  88 => 51,  82 => 48,  77 => 46,  73 => 45,  69 => 44,  66 => 43,  62 => 42,  19 => 1,);
     }
 }

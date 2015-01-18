@@ -29,7 +29,7 @@ try {
     throw $e;
 }
 
-$res = $db->query('SELECT t.name,t.id,COUNT(v.id) AS votes FROM todo t '
+$res = $db->query('SELECT t.desc,t.name,t.id,COUNT(v.id) AS votes FROM todo t '
         . ' LEFT JOIN votes v ON v.id=t.id '
         . ' GROUP BY t.id ORDER BY votes desc');
 

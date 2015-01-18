@@ -17,7 +17,7 @@ if (isset($_GET['action'])) {
     } else if ($_GET['action'] === 'down') {
 
         $id = (int) $_GET['id'];
-        $db->query('DELETE FROM votes WHERE ip_address="' . $_SERVER['REMOTE_ADDR'] . '"');
+        $db->query('DELETE FROM votes WHERE ip_address="' . $_SERVER['REMOTE_ADDR'] . '" AND id='.$id);
     }
 }
 
